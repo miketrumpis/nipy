@@ -1751,7 +1751,7 @@ def _matching_orth_dim(out_i, aff):
         if len(candidates) == 1:
             return candidates.pop(), ''
         return None, ' and corresponding index is ambiguous'
-    in_i = np.argmax(out_row)
+    in_i = np.argmax(np.abs(out_row))
     sel = range(N)
     sel.pop(in_i)
     if not np.allclose(out_row[sel], 0):
